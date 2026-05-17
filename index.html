@@ -281,8 +281,7 @@
             text-shadow: 0 1px 0 rgba(255,255,255,.75);
         }
 
-        .names .amp,
-        .hero .names::first-letter {
+        .names .amp {
             color: var(--gold);
         }
 
@@ -1433,6 +1432,93 @@
             }
         }
 
+
+        /* =========================================================
+           ФИНАЛЬНЫЕ ТОЧЕЧНЫЕ ПРАВКИ
+           1) имя «Александр» полностью голубое, золотой только амперсанд;
+           2) маленький зелёный акцент в календаре;
+           3) возвращены светлые таблички в тайминге;
+           4) палитра дресс-кода: 6 цветов, сетка 3 + 3.
+        ========================================================= */
+        .hero .names,
+        .hero .names::first-letter {
+            color: var(--blue) !important;
+        }
+
+        .hero .names .amp {
+            color: var(--gold) !important;
+        }
+
+        .calendar-green-accent {
+            position: absolute;
+            right: clamp(-44px, -4vw, -18px);
+            bottom: 18px;
+            width: clamp(112px, 22vw, 190px);
+            height: clamp(112px, 22vw, 190px);
+            background: url('assets/green-floral-cluster.png') center / contain no-repeat;
+            opacity: .72;
+            pointer-events: none;
+            z-index: 1;
+            filter: drop-shadow(0 14px 18px rgba(80, 110, 78, .10));
+        }
+
+        .timeline-event {
+            padding: 16px 18px 17px;
+            border-radius: 28px;
+            border: 1px solid rgba(200,169,107,.36);
+            background:
+                linear-gradient(rgba(255,253,248,.86), rgba(255,253,248,.78)),
+                url('assets/paper-texture-2.png') center / cover no-repeat;
+            box-shadow: 0 16px 34px rgba(72, 88, 106, .10);
+            backdrop-filter: blur(3px);
+        }
+
+        .timeline-event::before {
+            margin-top: -42px;
+            background: rgba(255,253,248,.92) !important;
+        }
+
+        .e1, .e3 {
+            text-align: left;
+        }
+
+        .dresscode-colors-new {
+            display: grid !important;
+            grid-template-columns: repeat(3, 62px);
+            justify-content: center;
+            align-items: center;
+            gap: 14px 18px !important;
+            max-width: 260px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 780px) {
+            .calendar-green-accent {
+                right: -34px;
+                bottom: 8px;
+                width: 126px;
+                height: 126px;
+                opacity: .68;
+            }
+
+            .timeline-event {
+                padding: 13px 14px 14px;
+                border-radius: 22px;
+                max-width: 172px;
+            }
+
+            .timeline-event::before {
+                margin-top: -36px;
+            }
+
+            .dresscode-colors-new {
+                grid-template-columns: repeat(3, 54px);
+                gap: 12px 14px !important;
+                max-width: 210px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1472,6 +1558,7 @@
         <!-- КАЛЕНДАРЬ -->
         <section class="calendar-section">
             <div class="calendar-card">
+                <div class="calendar-green-accent" aria-hidden="true"></div>
                 <h2>наш<br>июль</h2>
                 <div class="calendar-grid" aria-label="Календарь июль 2026">
                     <div>ПН</div><div>ВТ</div><div>СР</div><div>ЧТ</div><div>ПТ</div><div>СБ</div><div>ВС</div>
@@ -1534,11 +1621,12 @@
                 <div class="gold-divider"><span>♡</span></div>
                 <p>Мы будем рады видеть вас в нарядах нежных, воздушных тонов. Основные цвета нашей свадьбы:</p>
                 <div class="dresscode-colors dresscode-colors-new" aria-label="Палитра дресс-кода">
-                    <div class="color-square" title="Шоколадный" style="background:#6b4f3f;"></div>
-                    <div class="color-square" title="Песочный" style="background:#d8c3a2;"></div>
-                    <div class="color-square" title="Нежно-голубой" style="background:#dceaf3;"></div>
-                    <div class="color-square" title="Насыщенный голубой" style="background:#6f95b8;"></div>
-                    <div class="color-square" title="Зелёный" style="background:#899b73;"></div>
+                    <div class="color-square" title="Шоколадный" style="background:#684838;"></div>
+                    <div class="color-square" title="Песочный" style="background:#d6bf9e;"></div>
+                    <div class="color-square" title="Молочно-бежевый" style="background:#eadfcd;"></div>
+                    <div class="color-square" title="Нежно-голубой" style="background:#dbeaf2;"></div>
+                    <div class="color-square" title="Насыщенный голубой" style="background:#6f94b2;"></div>
+                    <div class="color-square" title="Зелёный" style="background:#82936d;"></div>
                 </div>
                 <p><strong>а также все пастельные тона, черный и белый для мужчин</strong> — создадим вместе уютную атмосферу!</p>
             </section>

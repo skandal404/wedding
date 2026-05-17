@@ -1519,580 +1519,123 @@
             }
         }
 
-
-
-        /* =========================================================
-           ФИНАЛЬНЫЕ ПРАВКИ: крупнее голубой цветок на стартовом экране,
-           зелёный верхний декор календаря, значки в кружочках тайминга,
-           актуальное расписание.
-        ========================================================= */
-        .startscreen-content img {
-            width: min(214px, 58vw) !important;
-            height: 158px !important;
-            margin-bottom: 18px !important;
-            object-fit: contain !important;
-        }
-
-        .calendar-green-top-accent {
-            position: absolute;
-            top: -54px;
-            left: 50%;
-            width: clamp(135px, 24vw, 220px);
-            height: clamp(100px, 18vw, 165px);
-            transform: translateX(-50%);
-            background: url('assets/green-botanical-left.png') center / contain no-repeat;
-            opacity: .58;
-            pointer-events: none;
-            z-index: 1;
-            filter: drop-shadow(0 12px 18px rgba(80, 110, 78, .10));
-        }
-
-        .timeline-event::before {
-            content: attr(data-icon) !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            color: var(--gold-dark) !important;
-            font-family: 'Cormorant Garamond', serif !important;
-            font-size: 28px !important;
-            font-weight: 600 !important;
-            background:
-                linear-gradient(rgba(255,253,248,.94), rgba(255,253,248,.86)),
-                url('assets/watercolor-cloud-blue.png') center / 160% auto no-repeat !important;
-            border: 1px solid rgba(200,169,107,.52) !important;
-            box-shadow: 0 10px 24px rgba(72, 88, 106, .10) !important;
-        }
-
-        @media (max-width: 780px) {
-            .startscreen-content img {
-                width: min(188px, 56vw) !important;
-                height: 142px !important;
-            }
-
-            .calendar-green-top-accent {
-                top: -36px;
-                width: 142px;
-                height: 112px;
-                opacity: .52;
-            }
-
-            .timeline-event::before {
-                font-size: 24px !important;
-            }
-        }
-
+    
 
         /* =========================================================
-           ПОСЛЕДНИЕ ПРАВКИ: крупнее голубой цветок, зелёные углы календаря,
-           подходящий значок сбора гостей и улучшенная мобильная адаптация.
+           ДОПОЛНИТЕЛЬНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ + ФИНАЛЬНАЯ ФОРМА
+           Эти правила стоят последними и аккуратно переопределяют
+           предыдущие стили только на небольших экранах.
         ========================================================= */
-        .startscreen-content img {
-            width: min(250px, 66vw) !important;
-            height: 186px !important;
-            margin-bottom: 18px !important;
-        }
-
-        .calendar-green-top-corner {
-            position: absolute;
-            top: -42px;
-            width: clamp(122px, 22vw, 210px);
-            height: clamp(110px, 20vw, 190px);
-            pointer-events: none;
-            z-index: 1;
-            opacity: .68;
-            filter: drop-shadow(0 14px 20px rgba(80, 110, 78, .10));
-        }
-
-        .calendar-green-top-left {
-            left: -38px;
-            background: url('assets/green-botanical-left.png') top left / contain no-repeat;
-        }
-
-        .calendar-green-top-right {
-            right: -38px;
-            background: url('assets/green-botanical-right.png') top right / contain no-repeat;
-        }
-
-        .timeline-event[data-icon="👥"]::before {
-            font-family: 'Montserrat', sans-serif !important;
-            font-size: 22px !important;
-            line-height: 1 !important;
-        }
-
         @media (max-width: 780px) {
+            body {
+                min-width: 320px;
+            }
+
             .container {
-                padding-left: 14px;
-                padding-right: 14px;
+                width: 100%;
+                padding: 14px 12px 34px !important;
+            }
+
+            .startscreen-content {
+                width: min(92vw, 420px) !important;
+                padding: 34px 18px 32px !important;
+                border-radius: 30px !important;
             }
 
             .startscreen-content img {
-                width: min(224px, 64vw) !important;
-                height: 168px !important;
+                width: min(260px, 76vw) !important;
+                height: 190px !important;
+                margin-bottom: 14px !important;
+            }
+
+            .startscreen-content h2 {
+                font-size: clamp(2.15rem, 10vw, 3.2rem) !important;
+                line-height: .92 !important;
+            }
+
+            .startscreen-content p {
+                font-size: .78rem !important;
+                padding: 8px 14px !important;
+                letter-spacing: .045em !important;
+            }
+
+            .hero {
+                min-height: auto !important;
+                padding: 32px 12px 34px !important;
+                margin-bottom: 10px !important;
+                border-radius: 0 0 34px 34px !important;
+            }
+
+            .photo-frame {
+                width: min(94vw, 395px) !important;
+                margin: 0 auto 14px !important;
+            }
+
+            .photo-frame::before {
+                inset: -15% -12% !important;
+            }
+
+            .photo-wrapper {
+                inset: 15% 19% !important;
+            }
+
+            .names {
+                font-size: clamp(2.35rem, 11.8vw, 3.95rem) !important;
+                line-height: .92 !important;
+                padding: 0 4px !important;
+            }
+
+            .sub {
+                font-size: clamp(1.18rem, 5.2vw, 1.55rem) !important;
+            }
+
+            .hero-flower {
+                width: 168px !important;
+                height: 72px !important;
+                margin-top: 8px !important;
+            }
+
+            .calendar-section {
+                padding: 18px 0 38px !important;
             }
 
             .calendar-card {
-                padding-top: 54px !important;
-                overflow: hidden;
+                width: 100% !important;
+                padding: 82px 14px 30px !important;
+                border-radius: 72px 72px 28px 28px !important;
+            }
+
+            .calendar-card h2 {
+                font-size: clamp(2.15rem, 10vw, 3rem) !important;
+                margin-bottom: 18px !important;
+            }
+
+            .calendar-grid {
+                max-width: 100% !important;
+                gap: 7px 3px !important;
+                font-size: clamp(1.16rem, 5.4vw, 1.55rem) !important;
+                margin-top: 18px !important;
+            }
+
+            .calendar-grid div {
+                font-size: .64rem !important;
+                letter-spacing: .09em !important;
+            }
+
+            .wedding-day::before {
+                inset: -8px !important;
+            }
+
+            .calendar-text {
+                margin-top: 24px !important;
+                font-size: clamp(1.08rem, 5vw, 1.35rem) !important;
             }
 
             .calendar-green-top-corner {
-                top: -26px;
-                width: 126px;
-                height: 118px;
-                opacity: .58;
-            }
-
-            .calendar-green-top-left { left: -34px; }
-            .calendar-green-top-right { right: -34px; }
-
-            .story-timeline {
-                min-height: 850px !important;
-                padding: 44px 12px 82px !important;
-                border-radius: 34px !important;
-            }
-
-            .timeline-area {
-                height: 680px !important;
-                width: min(100%, 390px) !important;
-            }
-
-            .timeline-event {
-                max-width: 164px !important;
-                padding: 12px 12px 13px !important;
-                border-radius: 22px !important;
-            }
-
-            .timeline-event::before {
-                width: 44px !important;
-                height: 44px !important;
-                margin-top: -34px !important;
-                margin-bottom: 4px !important;
-                font-size: 21px !important;
-            }
-
-            .timeline-event[data-icon="👥"]::before {
-                font-size: 19px !important;
-            }
-
-            .e1 { top: 72px !important; left: 0 !important; }
-            .e2 { top: 230px !important; right: 0 !important; }
-            .e3 { top: 420px !important; left: 0 !important; }
-            .e4 { bottom: 58px !important; right: 0 !important; }
-
-            .time {
-                font-size: clamp(2.55rem, 11vw, 3.35rem) !important;
-            }
-
-            .event-title {
-                font-size: clamp(1.08rem, 5vw, 1.36rem) !important;
-            }
-
-            .timeline-flower {
-                width: 66px !important;
-                height: 66px !important;
-            }
-        }
-
-        @media (max-width: 390px) {
-            .startscreen-content img {
-                width: min(206px, 66vw) !important;
-                height: 154px !important;
-            }
-
-            .calendar-green-top-corner {
-                width: 108px;
-                height: 100px;
-                top: -20px;
-                opacity: .52;
-            }
-
-            .timeline-area {
-                height: 650px !important;
-            }
-
-            .timeline-event {
-                max-width: 148px !important;
-                padding: 11px 10px 12px !important;
-            }
-
-            .time {
-                font-size: 2.45rem !important;
-            }
-
-            .event-title {
-                font-size: 1.06rem !important;
-            }
-
-            .timeline-flower {
-                width: 58px !important;
-                height: 58px !important;
-            }
-        }
-
-
-        /* =========================================================
-           ИСПРАВЛЕНИЯ ПОСЛЕ ПРОСМОТРА:
-           1) голубой цветок на стартовой странице ещё крупнее;
-           2) зелёный декор календаря явно виден в верхних углах;
-           3) значок «Сбор гостей» заменён на одноцветный символ в общей гамме.
-        ========================================================= */
-        .startscreen-content img {
-            width: min(292px, 74vw) !important;
-            height: 216px !important;
-            margin-bottom: 16px !important;
-            object-fit: contain !important;
-            filter: drop-shadow(0 16px 24px rgba(74, 97, 122, .15)) !important;
-        }
-
-        .calendar-card {
-            overflow: hidden !important;
-        }
-
-        .calendar-green-top-corner {
-            top: 8px !important;
-            width: clamp(150px, 24vw, 236px) !important;
-            height: clamp(132px, 22vw, 216px) !important;
-            opacity: .78 !important;
-            z-index: 2 !important;
-            filter: drop-shadow(0 14px 20px rgba(80, 110, 78, .12)) !important;
-        }
-
-        .calendar-green-top-left {
-            left: -14px !important;
-            background: url('assets/green-botanical-left.png') top left / contain no-repeat !important;
-        }
-
-        .calendar-green-top-right {
-            right: -14px !important;
-            background: url('assets/green-botanical-right.png') top right / contain no-repeat !important;
-        }
-
-        .calendar-green-top-accent {
-            top: -8px !important;
-            width: clamp(125px, 20vw, 190px) !important;
-            height: clamp(90px, 14vw, 135px) !important;
-            opacity: .42 !important;
-            z-index: 1 !important;
-        }
-
-        .timeline-event[data-icon="⌖"]::before {
-            content: "⌖" !important;
-            color: var(--gold-dark) !important;
-            font-family: 'Cormorant Garamond', serif !important;
-            font-size: 30px !important;
-            font-weight: 600 !important;
-            background:
-                linear-gradient(rgba(255,253,248,.94), rgba(255,253,248,.86)),
-                url('assets/watercolor-cloud-blue.png') center / 160% auto no-repeat !important;
-            border-color: rgba(200,169,107,.52) !important;
-        }
-
-        @media (max-width: 780px) {
-            .startscreen-content img {
-                width: min(250px, 72vw) !important;
-                height: 186px !important;
-            }
-
-            .calendar-card {
-                padding-top: 70px !important;
-            }
-
-            .calendar-green-top-corner {
-                top: 8px !important;
-                width: 138px !important;
-                height: 128px !important;
-                opacity: .72 !important;
-            }
-
-            .calendar-green-top-left {
-                left: -28px !important;
-            }
-
-            .calendar-green-top-right {
-                right: -28px !important;
-            }
-
-            .timeline-event[data-icon="⌖"]::before {
-                font-size: 24px !important;
-            }
-        }
-
-        @media (max-width: 390px) {
-            .startscreen-content img {
-                width: min(226px, 72vw) !important;
-                height: 166px !important;
-            }
-
-            .calendar-card {
-                padding-top: 62px !important;
-            }
-
-            .calendar-green-top-corner {
-                width: 118px !important;
-                height: 108px !important;
-                opacity: .68 !important;
-            }
-        }
-
-    
-
-        /* =========================================================
-           ФИНАЛЬНЫЕ УТОЧНЕНИЯ: цвет стартового текста, ещё крупнее
-           голубой цветок, золотой акцент & и 18, заметный зелёный
-           декор сверху календаря, силуэты гостей в общей гамме.
-        ========================================================= */
-        :root {
-            --hero-gold: #c7a25f;
-            --hero-gold-dark: #a98543;
-        }
-
-        .startscreen-content h2 {
-            color: var(--blue) !important;
-        }
-
-        .startscreen-content p {
-            color: var(--blue-dark) !important;
-            border-top-color: rgba(200,169,107,.62) !important;
-            border-bottom-color: rgba(200,169,107,.62) !important;
-        }
-
-        .startscreen-content img {
-            width: min(332px, 84vw) !important;
-            height: 248px !important;
-            margin-bottom: 18px !important;
-        }
-
-        .names .amp {
-            color: var(--hero-gold) !important;
-            text-shadow: 0 0 10px rgba(199,162,95,.16);
-        }
-
-        .wedding-day {
-            color: var(--hero-gold-dark) !important;
-            font-weight: 700 !important;
-        }
-
-        .wedding-day::before {
-            background:
-                radial-gradient(circle, rgba(255,250,240,.96) 0 29%, rgba(236,214,166,.90) 30% 40%, rgba(199,162,95,.34) 41% 58%, transparent 60%),
-                conic-gradient(from 0deg, transparent 0 9deg, rgba(199,162,95,.92) 9deg 13deg, transparent 13deg 26deg) !important;
-            box-shadow: 0 0 26px rgba(199,162,95,.42) !important;
-        }
-
-        .calendar-card {
-            padding-top: clamp(58px, 8vw, 90px) !important;
-        }
-
-        .calendar-green-top-accent {
-            position: absolute !important;
-            top: -22px !important;
-            left: 50% !important;
-            width: clamp(168px, 24vw, 240px) !important;
-            height: clamp(120px, 18vw, 170px) !important;
-            transform: translateX(-50%) !important;
-            background: url('assets/green-floral-cluster.png') center / contain no-repeat !important;
-            opacity: .82 !important;
-            z-index: 2 !important;
-            filter: drop-shadow(0 12px 20px rgba(80, 110, 78, .18)) !important;
-        }
-
-        .calendar-green-top-corner {
-            top: -8px !important;
-            width: clamp(178px, 25vw, 250px) !important;
-            height: clamp(145px, 21vw, 215px) !important;
-            opacity: .88 !important;
-            z-index: 2 !important;
-            filter: drop-shadow(0 14px 20px rgba(80, 110, 78, .16)) !important;
-        }
-
-        .calendar-green-top-left {
-            left: -24px !important;
-        }
-
-        .calendar-green-top-right {
-            right: -24px !important;
-        }
-
-        .timeline-event::before {
-            color: var(--hero-gold-dark) !important;
-            background:
-                linear-gradient(rgba(255,253,248,.96), rgba(255,253,248,.88)),
-                url('assets/watercolor-cloud-blue.png') center / 160% auto no-repeat !important;
-            border-color: rgba(199,162,95,.52) !important;
-        }
-
-        .timeline-event[data-icon="guests"]::before {
-            content: "" !important;
-            background-image:
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='%23a98543'%3E%3Ccircle cx='24' cy='21' r='8'/%3E%3Ccircle cx='40' cy='23' r='7'/%3E%3Cpath d='M11 45c0-7.2 6-13 13.5-13S38 37.8 38 45v3H11z'/%3E%3Cpath d='M33 46c0-5.7 4.8-10.5 10.8-10.5S54 40.3 54 46v2H33z'/%3E%3C/g%3E%3C/svg%3E"),
-                linear-gradient(rgba(255,253,248,.96), rgba(255,253,248,.88)),
-                url('assets/watercolor-cloud-blue.png') !important;
-            background-repeat: no-repeat, no-repeat, no-repeat !important;
-            background-position: center, center, center !important;
-            background-size: 54% auto, cover, 160% auto !important;
-            color: transparent !important;
-            font-size: 0 !important;
-        }
-
-        @media (max-width: 780px) {
-            .startscreen-content img {
-                width: min(280px, 78vw) !important;
-                height: 210px !important;
-            }
-
-            .calendar-card {
-                padding-top: 78px !important;
-            }
-
-            .calendar-green-top-accent {
-                top: 2px !important;
-                width: 140px !important;
-                height: 104px !important;
-                opacity: .78 !important;
-            }
-
-            .calendar-green-top-corner {
-                top: 2px !important;
-                width: 150px !important;
-                height: 128px !important;
-                opacity: .84 !important;
-            }
-
-            .calendar-green-top-left {
-                left: -30px !important;
-            }
-
-            .calendar-green-top-right {
-                right: -30px !important;
-            }
-        }
-
-        @media (max-width: 390px) {
-            .startscreen-content img {
-                width: min(254px, 78vw) !important;
-                height: 192px !important;
-            }
-
-            .calendar-card {
-                padding-top: 72px !important;
-            }
-
-            .calendar-green-top-accent {
-                width: 124px !important;
-                height: 92px !important;
-            }
-
-            .calendar-green-top-corner {
-                width: 132px !important;
-                height: 112px !important;
-            }
-        }
-
-    
-
-        /* =========================================================
-           ИСПРАВЛЕНИЕ ДЛЯ ЗАГРУЖЕННОГО ФАЙЛА index (1).html
-           1) & между именами и дата 18 — в цвет золота овальной арки;
-           2) верхние углы календаря явно оформлены зелёным декором.
-        ========================================================= */
-        :root {
-            --oval-arch-gold: #c8a96b;
-            --oval-arch-gold-dark: #9f7d3c;
-            --oval-arch-gold-light: #ead8ac;
-        }
-
-        .hero .names .amp,
-        .names .amp {
-            color: var(--oval-arch-gold) !important;
-            text-shadow:
-                0 1px 0 rgba(255,255,255,.72),
-                0 0 10px rgba(200,169,107,.22) !important;
-        }
-
-        .wedding-day {
-            color: var(--oval-arch-gold-dark) !important;
-            text-shadow: 0 1px 0 rgba(255,255,255,.72) !important;
-            font-weight: 700 !important;
-        }
-
-        .wedding-day::before {
-            background:
-                radial-gradient(circle,
-                    rgba(255,253,246,.98) 0 25%,
-                    var(--oval-arch-gold-light) 26% 38%,
-                    var(--oval-arch-gold) 39% 52%,
-                    rgba(200,169,107,.28) 53% 66%,
-                    transparent 67%),
-                conic-gradient(from -8deg,
-                    transparent 0 7deg,
-                    rgba(200,169,107,.96) 7deg 12deg,
-                    transparent 12deg 24deg) !important;
-            box-shadow:
-                0 0 18px rgba(200,169,107,.50),
-                0 0 38px rgba(200,169,107,.24),
-                inset 0 0 0 1px rgba(255,255,255,.62) !important;
-        }
-
-        .calendar-card {
-            padding-top: clamp(76px, 9vw, 104px) !important;
-            overflow: hidden !important;
-        }
-
-        .calendar-green-top-corner {
-            position: absolute !important;
-            top: 8px !important;
-            width: clamp(190px, 28vw, 286px) !important;
-            height: clamp(150px, 23vw, 235px) !important;
-            opacity: .98 !important;
-            z-index: 5 !important;
-            pointer-events: none !important;
-            filter: drop-shadow(0 14px 22px rgba(75, 105, 72, .20)) !important;
-        }
-
-        .calendar-green-top-left {
-            left: -18px !important;
-            background: url('assets/green-botanical-left.png') top left / contain no-repeat !important;
-            transform: none !important;
-        }
-
-        .calendar-green-top-right {
-            right: -18px !important;
-            background: url('assets/green-botanical-right.png') top right / contain no-repeat !important;
-            transform: none !important;
-        }
-
-        .calendar-green-top-accent {
-            position: absolute !important;
-            top: -10px !important;
-            left: 50% !important;
-            width: clamp(150px, 22vw, 225px) !important;
-            height: clamp(105px, 15vw, 160px) !important;
-            transform: translateX(-50%) !important;
-            background: url('assets/green-floral-cluster.png') center top / contain no-repeat !important;
-            opacity: .76 !important;
-            z-index: 4 !important;
-            pointer-events: none !important;
-            filter: drop-shadow(0 12px 18px rgba(75, 105, 72, .16)) !important;
-        }
-
-        .calendar-card h2,
-        .calendar-grid,
-        .calendar-text,
-        .calendar-card .gold-divider {
-            position: relative !important;
-            z-index: 6 !important;
-        }
-
-        @media (max-width: 780px) {
-            .calendar-card {
-                padding-top: 86px !important;
-            }
-
-            .calendar-green-top-corner {
-                top: 10px !important;
-                width: 156px !important;
-                height: 132px !important;
-                opacity: .96 !important;
+                top: 6px !important;
+                width: 142px !important;
+                height: 122px !important;
+                opacity: .9 !important;
             }
 
             .calendar-green-top-left {
@@ -2104,27 +1647,179 @@
             }
 
             .calendar-green-top-accent {
-                top: 2px !important;
+                top: 0 !important;
                 width: 130px !important;
-                height: 92px !important;
-                opacity: .66 !important;
+                height: 98px !important;
+                opacity: .74 !important;
+            }
+
+            .story-timeline {
+                min-height: 820px !important;
+                padding: 38px 10px 78px !important;
+                margin: 0 0 28px !important;
+                border-radius: 30px !important;
+            }
+
+            .timeline-area {
+                width: min(100%, 390px) !important;
+                height: 640px !important;
+                margin-top: 10px !important;
+            }
+
+            .timeline-svg {
+                width: 100% !important;
+            }
+
+            .timeline-event {
+                max-width: 150px !important;
+                padding: 11px 10px 12px !important;
+                border-radius: 20px !important;
+            }
+
+            .timeline-event::before {
+                width: 42px !important;
+                height: 42px !important;
+                margin-top: -32px !important;
+                margin-bottom: 4px !important;
+                font-size: 19px !important;
+            }
+
+            .timeline-event[data-icon="guests"]::before {
+                background-size: 56% auto, cover, 160% auto !important;
+            }
+
+            .e1 { top: 70px !important; left: 0 !important; }
+            .e2 { top: 218px !important; right: 0 !important; }
+            .e3 { top: 390px !important; left: 0 !important; }
+            .e4 { bottom: 48px !important; right: 0 !important; }
+
+            .time {
+                font-size: clamp(2.35rem, 10.5vw, 3.15rem) !important;
+            }
+
+            .event-title {
+                font-size: clamp(1.02rem, 4.8vw, 1.28rem) !important;
+            }
+
+            .timeline-flower {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .info-grid,
+            .form-grid {
+                grid-template-columns: 1fr !important;
+                gap: 22px !important;
+            }
+
+            .card {
+                padding: 26px 18px !important;
+                border-radius: 26px !important;
+                margin-bottom: 24px !important;
+            }
+
+            .card h2 {
+                font-size: clamp(2rem, 9vw, 2.85rem) !important;
+            }
+
+            .dresscode-colors-new {
+                grid-template-columns: repeat(3, 54px) !important;
+                gap: 12px 14px !important;
+                max-width: 220px !important;
+            }
+
+            .dresscode-colors-new .color-square {
+                width: 54px !important;
+                height: 54px !important;
+            }
+
+            .rsvp-form input[type="text"],
+            .rsvp-form textarea {
+                font-size: .94rem !important;
+                padding: 14px 15px !important;
+                border-radius: 16px !important;
+            }
+
+            .radio-group label {
+                font-size: .93rem !important;
+                line-height: 1.35 !important;
+            }
+
+            .rsvp-form button {
+                width: 100% !important;
+                font-size: 1.32rem !important;
+                padding: 15px 18px !important;
+            }
+
+            footer {
+                padding-top: 120px !important;
+                font-size: 1.2rem !important;
             }
         }
 
         @media (max-width: 390px) {
+            .container {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+            .startscreen-content img {
+                width: min(238px, 76vw) !important;
+                height: 176px !important;
+            }
+
+            .names {
+                font-size: clamp(2.14rem, 11.5vw, 3.15rem) !important;
+            }
+
             .calendar-card {
-                padding-top: 78px !important;
+                padding: 74px 10px 26px !important;
+            }
+
+            .calendar-grid {
+                font-size: 1.08rem !important;
+                gap: 6px 2px !important;
             }
 
             .calendar-green-top-corner {
-                width: 136px !important;
-                height: 116px !important;
-                opacity: .92 !important;
+                width: 124px !important;
+                height: 108px !important;
             }
 
-            .calendar-green-top-accent {
-                width: 112px !important;
-                height: 82px !important;
+            .calendar-green-top-left { left: -34px !important; }
+            .calendar-green-top-right { right: -34px !important; }
+
+            .timeline-area {
+                height: 610px !important;
+            }
+
+            .timeline-event {
+                max-width: 138px !important;
+                padding: 10px 9px 11px !important;
+            }
+
+            .timeline-event::before {
+                width: 38px !important;
+                height: 38px !important;
+                margin-top: -30px !important;
+            }
+
+            .e1 { top: 68px !important; }
+            .e2 { top: 204px !important; }
+            .e3 { top: 368px !important; }
+            .e4 { bottom: 42px !important; }
+
+            .time {
+                font-size: 2.22rem !important;
+            }
+
+            .event-title {
+                font-size: 1rem !important;
+            }
+
+            .timeline-flower {
+                width: 54px !important;
+                height: 54px !important;
             }
         }
 
@@ -2168,9 +1863,6 @@
         <section class="calendar-section">
             <div class="calendar-card">
                 <div class="calendar-green-accent" aria-hidden="true"></div>
-                <div class="calendar-green-top-accent" aria-hidden="true"></div>
-                <div class="calendar-green-top-corner calendar-green-top-left" aria-hidden="true"></div>
-                <div class="calendar-green-top-corner calendar-green-top-right" aria-hidden="true"></div>
                 <h2>наш<br>июль</h2>
                 <div class="calendar-grid" aria-label="Календарь июль 2026">
                     <div>ПН</div><div>ВТ</div><div>СР</div><div>ЧТ</div><div>ПТ</div><div>СБ</div><div>ВС</div>
@@ -2193,21 +1885,21 @@
                 <svg class="timeline-svg" viewBox="0 0 500 760" preserveAspectRatio="none" aria-hidden="true">
                     <path id="timeline-path" d="M250 0 C65 120, 435 210, 250 345 C65 485, 435 585, 250 760" />
                 </svg>
-                <div class="timeline-event e1" data-icon="guests">
-                    <div class="time">15:00</div>
+                <div class="timeline-event e1" data-icon="♙">
+                    <div class="time">15:30</div>
                     <div class="event-title">Сбор гостей</div>
                 </div>
                 <div class="timeline-event e2" data-icon="♡">
-                    <div class="time">15:30</div>
+                    <div class="time">16:00</div>
                     <div class="event-title">Выездная<br>регистрация</div>
                 </div>
-                <div class="timeline-event e3" data-icon="♢">
-                    <div class="time">16:00</div>
+                <div class="timeline-event e3" data-icon="♧">
+                    <div class="time">17:00</div>
                     <div class="event-title">Торжественный<br>банкет</div>
                 </div>
                 <div class="timeline-event e4" data-icon="✦">
-                    <div class="time">21:30</div>
-                    <div class="event-title">Завершение<br>вечера</div>
+                    <div class="time">23:00</div>
+                    <div class="event-title">Окончание<br>вечера</div>
                 </div>
                 <div class="timeline-flower" aria-hidden="true"></div>
             </div>

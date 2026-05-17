@@ -1729,6 +1729,111 @@
             }
         }
 
+
+        /* =========================================================
+           ИСПРАВЛЕНИЯ ПОСЛЕ ПРОСМОТРА:
+           1) голубой цветок на стартовой странице ещё крупнее;
+           2) зелёный декор календаря явно виден в верхних углах;
+           3) значок «Сбор гостей» заменён на одноцветный символ в общей гамме.
+        ========================================================= */
+        .startscreen-content img {
+            width: min(292px, 74vw) !important;
+            height: 216px !important;
+            margin-bottom: 16px !important;
+            object-fit: contain !important;
+            filter: drop-shadow(0 16px 24px rgba(74, 97, 122, .15)) !important;
+        }
+
+        .calendar-card {
+            overflow: hidden !important;
+        }
+
+        .calendar-green-top-corner {
+            top: 8px !important;
+            width: clamp(150px, 24vw, 236px) !important;
+            height: clamp(132px, 22vw, 216px) !important;
+            opacity: .78 !important;
+            z-index: 2 !important;
+            filter: drop-shadow(0 14px 20px rgba(80, 110, 78, .12)) !important;
+        }
+
+        .calendar-green-top-left {
+            left: -14px !important;
+            background: url('assets/green-botanical-left.png') top left / contain no-repeat !important;
+        }
+
+        .calendar-green-top-right {
+            right: -14px !important;
+            background: url('assets/green-botanical-right.png') top right / contain no-repeat !important;
+        }
+
+        .calendar-green-top-accent {
+            top: -8px !important;
+            width: clamp(125px, 20vw, 190px) !important;
+            height: clamp(90px, 14vw, 135px) !important;
+            opacity: .42 !important;
+            z-index: 1 !important;
+        }
+
+        .timeline-event[data-icon="⌖"]::before {
+            content: "⌖" !important;
+            color: var(--gold-dark) !important;
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 30px !important;
+            font-weight: 600 !important;
+            background:
+                linear-gradient(rgba(255,253,248,.94), rgba(255,253,248,.86)),
+                url('assets/watercolor-cloud-blue.png') center / 160% auto no-repeat !important;
+            border-color: rgba(200,169,107,.52) !important;
+        }
+
+        @media (max-width: 780px) {
+            .startscreen-content img {
+                width: min(250px, 72vw) !important;
+                height: 186px !important;
+            }
+
+            .calendar-card {
+                padding-top: 70px !important;
+            }
+
+            .calendar-green-top-corner {
+                top: 8px !important;
+                width: 138px !important;
+                height: 128px !important;
+                opacity: .72 !important;
+            }
+
+            .calendar-green-top-left {
+                left: -28px !important;
+            }
+
+            .calendar-green-top-right {
+                right: -28px !important;
+            }
+
+            .timeline-event[data-icon="⌖"]::before {
+                font-size: 24px !important;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .startscreen-content img {
+                width: min(226px, 72vw) !important;
+                height: 166px !important;
+            }
+
+            .calendar-card {
+                padding-top: 62px !important;
+            }
+
+            .calendar-green-top-corner {
+                width: 118px !important;
+                height: 108px !important;
+                opacity: .68 !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1794,7 +1899,7 @@
                 <svg class="timeline-svg" viewBox="0 0 500 760" preserveAspectRatio="none" aria-hidden="true">
                     <path id="timeline-path" d="M250 0 C65 120, 435 210, 250 345 C65 485, 435 585, 250 760" />
                 </svg>
-                <div class="timeline-event e1" data-icon="👥">
+                <div class="timeline-event e1" data-icon="⌖">
                     <div class="time">15:00</div>
                     <div class="event-title">Сбор гостей</div>
                 </div>

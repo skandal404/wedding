@@ -1834,6 +1834,160 @@
             }
         }
 
+    
+
+        /* =========================================================
+           ФИНАЛЬНЫЕ УТОЧНЕНИЯ: цвет стартового текста, ещё крупнее
+           голубой цветок, золотой акцент & и 18, заметный зелёный
+           декор сверху календаря, силуэты гостей в общей гамме.
+        ========================================================= */
+        :root {
+            --hero-gold: #c7a25f;
+            --hero-gold-dark: #a98543;
+        }
+
+        .startscreen-content h2 {
+            color: var(--blue) !important;
+        }
+
+        .startscreen-content p {
+            color: var(--blue-dark) !important;
+            border-top-color: rgba(200,169,107,.62) !important;
+            border-bottom-color: rgba(200,169,107,.62) !important;
+        }
+
+        .startscreen-content img {
+            width: min(332px, 84vw) !important;
+            height: 248px !important;
+            margin-bottom: 18px !important;
+        }
+
+        .names .amp {
+            color: var(--hero-gold) !important;
+            text-shadow: 0 0 10px rgba(199,162,95,.16);
+        }
+
+        .wedding-day {
+            color: var(--hero-gold-dark) !important;
+            font-weight: 700 !important;
+        }
+
+        .wedding-day::before {
+            background:
+                radial-gradient(circle, rgba(255,250,240,.96) 0 29%, rgba(236,214,166,.90) 30% 40%, rgba(199,162,95,.34) 41% 58%, transparent 60%),
+                conic-gradient(from 0deg, transparent 0 9deg, rgba(199,162,95,.92) 9deg 13deg, transparent 13deg 26deg) !important;
+            box-shadow: 0 0 26px rgba(199,162,95,.42) !important;
+        }
+
+        .calendar-card {
+            padding-top: clamp(58px, 8vw, 90px) !important;
+        }
+
+        .calendar-green-top-accent {
+            position: absolute !important;
+            top: -22px !important;
+            left: 50% !important;
+            width: clamp(168px, 24vw, 240px) !important;
+            height: clamp(120px, 18vw, 170px) !important;
+            transform: translateX(-50%) !important;
+            background: url('assets/green-floral-cluster.png') center / contain no-repeat !important;
+            opacity: .82 !important;
+            z-index: 2 !important;
+            filter: drop-shadow(0 12px 20px rgba(80, 110, 78, .18)) !important;
+        }
+
+        .calendar-green-top-corner {
+            top: -8px !important;
+            width: clamp(178px, 25vw, 250px) !important;
+            height: clamp(145px, 21vw, 215px) !important;
+            opacity: .88 !important;
+            z-index: 2 !important;
+            filter: drop-shadow(0 14px 20px rgba(80, 110, 78, .16)) !important;
+        }
+
+        .calendar-green-top-left {
+            left: -24px !important;
+        }
+
+        .calendar-green-top-right {
+            right: -24px !important;
+        }
+
+        .timeline-event::before {
+            color: var(--hero-gold-dark) !important;
+            background:
+                linear-gradient(rgba(255,253,248,.96), rgba(255,253,248,.88)),
+                url('assets/watercolor-cloud-blue.png') center / 160% auto no-repeat !important;
+            border-color: rgba(199,162,95,.52) !important;
+        }
+
+        .timeline-event[data-icon="guests"]::before {
+            content: "" !important;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='%23a98543'%3E%3Ccircle cx='24' cy='21' r='8'/%3E%3Ccircle cx='40' cy='23' r='7'/%3E%3Cpath d='M11 45c0-7.2 6-13 13.5-13S38 37.8 38 45v3H11z'/%3E%3Cpath d='M33 46c0-5.7 4.8-10.5 10.8-10.5S54 40.3 54 46v2H33z'/%3E%3C/g%3E%3C/svg%3E"),
+                linear-gradient(rgba(255,253,248,.96), rgba(255,253,248,.88)),
+                url('assets/watercolor-cloud-blue.png') !important;
+            background-repeat: no-repeat, no-repeat, no-repeat !important;
+            background-position: center, center, center !important;
+            background-size: 54% auto, cover, 160% auto !important;
+            color: transparent !important;
+            font-size: 0 !important;
+        }
+
+        @media (max-width: 780px) {
+            .startscreen-content img {
+                width: min(280px, 78vw) !important;
+                height: 210px !important;
+            }
+
+            .calendar-card {
+                padding-top: 78px !important;
+            }
+
+            .calendar-green-top-accent {
+                top: 2px !important;
+                width: 140px !important;
+                height: 104px !important;
+                opacity: .78 !important;
+            }
+
+            .calendar-green-top-corner {
+                top: 2px !important;
+                width: 150px !important;
+                height: 128px !important;
+                opacity: .84 !important;
+            }
+
+            .calendar-green-top-left {
+                left: -30px !important;
+            }
+
+            .calendar-green-top-right {
+                right: -30px !important;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .startscreen-content img {
+                width: min(254px, 78vw) !important;
+                height: 192px !important;
+            }
+
+            .calendar-card {
+                padding-top: 72px !important;
+            }
+
+            .calendar-green-top-accent {
+                width: 124px !important;
+                height: 92px !important;
+            }
+
+            .calendar-green-top-corner {
+                width: 132px !important;
+                height: 112px !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1899,7 +2053,7 @@
                 <svg class="timeline-svg" viewBox="0 0 500 760" preserveAspectRatio="none" aria-hidden="true">
                     <path id="timeline-path" d="M250 0 C65 120, 435 210, 250 345 C65 485, 435 585, 250 760" />
                 </svg>
-                <div class="timeline-event e1" data-icon="⌖">
+                <div class="timeline-event e1" data-icon="guests">
                     <div class="time">15:00</div>
                     <div class="event-title">Сбор гостей</div>
                 </div>

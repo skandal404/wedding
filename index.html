@@ -1207,6 +1207,112 @@
             }
         }
 
+
+        /* =========================================================
+           ПРАВКА: СТАРТОВАЯ СТРАНИЦА В ДВУХ ЦВЕТАХ
+           левый верх + правый низ — зелёные элементы;
+           правый верх + левый низ — голубые элементы.
+           Текст календаря и тайминга возвращён в общий голубой цвет.
+        ========================================================= */
+        .startscreen::before {
+            top: -42px;
+            left: -78px;
+            width: min(78vw, 560px);
+            height: min(78vw, 560px);
+            background: url('assets/green-botanical-left.png') top left / contain no-repeat;
+            opacity: .94;
+        }
+
+        .startscreen::after {
+            bottom: -48px;
+            right: -78px;
+            width: min(76vw, 540px);
+            height: min(76vw, 540px);
+            background: url('assets/green-footer-corner.png') bottom right / contain no-repeat;
+            opacity: .86;
+        }
+
+        .startscreen-blue-corner {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            opacity: .74;
+            filter: drop-shadow(0 14px 22px rgba(61,88,114,.08));
+        }
+
+        .startscreen-blue-top-right {
+            top: -38px;
+            right: -78px;
+            width: min(70vw, 500px);
+            height: min(70vw, 500px);
+            background: url('assets/top-botanical-right.png') top right / contain no-repeat;
+        }
+
+        .startscreen-blue-bottom-left {
+            bottom: -46px;
+            left: -86px;
+            width: min(72vw, 510px);
+            height: min(72vw, 510px);
+            background: url('assets/corner-bottom-right.png') bottom right / contain no-repeat;
+            transform: scaleX(-1);
+            transform-origin: center;
+        }
+
+        .startscreen-content {
+            z-index: 2;
+        }
+
+        .calendar-card h2,
+        .timeline-title,
+        .time {
+            color: var(--blue) !important;
+        }
+
+        .calendar-card,
+        .calendar-grid div,
+        .calendar-grid span,
+        .calendar-text,
+        .timeline-event,
+        .event-title {
+            color: var(--blue-dark) !important;
+        }
+
+        .wedding-day {
+            color: #fffaf2 !important;
+        }
+
+        @media (max-width: 780px) {
+            .startscreen::before {
+                width: 76vw;
+                height: 76vw;
+                left: -58px;
+                top: -34px;
+            }
+
+            .startscreen::after {
+                width: 72vw;
+                height: 72vw;
+                right: -58px;
+                bottom: -34px;
+            }
+
+            .startscreen-blue-top-right {
+                width: 66vw;
+                height: 66vw;
+                right: -64px;
+                top: -28px;
+                opacity: .62;
+            }
+
+            .startscreen-blue-bottom-left {
+                width: 68vw;
+                height: 68vw;
+                left: -70px;
+                bottom: -34px;
+                opacity: .62;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1215,6 +1321,8 @@
 
 <!-- СТАРТОВЫЙ ЭКРАН -->
 <div id="startscreen" class="startscreen">
+    <div class="startscreen-blue-corner startscreen-blue-top-right" aria-hidden="true"></div>
+    <div class="startscreen-blue-corner startscreen-blue-bottom-left" aria-hidden="true"></div>
     <div class="startscreen-content">
         <img src="assets/tiny-flower.png" alt="Свадебный декор">
         <h2>Приглашение на свадьбу</h2>
